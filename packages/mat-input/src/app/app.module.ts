@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Injector } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material';
+import { createCustomElement } from '@angular/elements';
 
 import { AppComponent } from './app.component';
 import { InputComponent } from './input/input.component';
@@ -18,7 +19,20 @@ import { TextareaComponent } from './textarea/textarea.component';
     BrowserAnimationsModule,
     MatInputModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  entryComponents: [
+    AppComponent,
+    InputComponent,
+    TextareaComponent
+  ],
+  providers: []
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private injector: Injector) {}
+
+  ngDoBootstrap() {
+    const elementMatInput = createCustomElement(AppComponent, {
+      injector: this.injector
+    });
+    customElements.define("mat-input", elementMatInput);
+  }
+}
