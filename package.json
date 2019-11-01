@@ -1,0 +1,7 @@
+{
+  "name": "lerna-monorepo-poc",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^3.18.3"
+  }
+}
