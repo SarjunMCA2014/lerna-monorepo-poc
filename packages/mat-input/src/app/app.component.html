@@ -1,0 +1,7 @@
+<ng-container *ngIf="type === 'input'">
+  <app-input [placeholder]="placeholder" [value]="value"></app-input>
+</ng-container>
+
+<ng-container *ngIf="type === 'textarea'">
+  <app-textarea [placeholder]="placeholder"></app-textarea>
+</ng-container>
