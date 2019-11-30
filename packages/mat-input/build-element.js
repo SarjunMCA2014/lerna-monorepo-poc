@@ -5,7 +5,6 @@ const concat = require('concat');
   const files = [
     './dist/mat-input/runtime-es5.js',
     './dist/mat-input/polyfills-es5.js',
-    './dist/mat-input/scripts.js',
     './dist/mat-input/main-es5.js',
   ];
   const srcDistPath = './dist/mat-input';
